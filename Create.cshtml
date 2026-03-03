@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SnackTrack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --snack-orange: #ff6b2b;
+            --snack-yellow: #ffd700;
+            --snack-dark: #1a1a2e;
+        }
+        body { background-color: #f8f5f0; }
+        .navbar { background: linear-gradient(135deg, var(--snack-dark), #16213e) !important; }
+        .navbar-brand { font-weight: 800; font-size: 1.4rem; color: var(--snack-orange) !important; }
+        .navbar-brand span { color: var(--snack-yellow); }
+        .nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: var(--snack-orange) !important; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        .btn-primary { background-color: var(--snack-orange); border-color: var(--snack-orange); }
+        .btn-primary:hover { background-color: #e55a1f; border-color: #e55a1f; }
+        .page-header { background: linear-gradient(135deg, var(--snack-dark), #16213e);
+            color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+        footer { background: var(--snack-dark); color: rgba(255,255,255,0.6); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                🍟 Snack<span>Track</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Snacks" asp-action="Index">
+                            <i class="fas fa-cookie-bite me-1"></i>Snacks
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-sm btn-primary" asp-controller="Snacks" asp-action="Create">
+                            <i class="fas fa-plus me-1"></i>Add Snack
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        @RenderBody()
+    </main>
+
+    <footer class="py-3 mt-5 text-center">
+        <div class="container">
+            <p class="mb-0">🍟 SnackTrack &copy; @DateTime.Now.Year — Campus Snack Directory</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

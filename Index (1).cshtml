@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="page-header text-center">
+    <h1 class="display-5 fw-bold mb-2">🍟 Welcome to SnackTrack</h1>
+    <p class="lead mb-3">Your ultimate guide to the best campus snacks</p>
+    <a asp-controller="Snacks" asp-action="Index" class="btn btn-warning btn-lg fw-bold me-2">
+        <i class="fas fa-list me-2"></i>Browse Snacks
+    </a>
+    <a asp-controller="Snacks" asp-action="Create" class="btn btn-outline-light btn-lg">
+        <i class="fas fa-plus me-2"></i>Add a Snack
+    </a>
+</div>
+
+<div class="row g-4 text-center mt-2">
+    <div class="col-md-4">
+        <div class="card p-4 h-100">
+            <div class="fs-1 mb-2">🔍</div>
+            <h5 class="fw-bold">Discover</h5>
+            <p class="text-muted">Browse snacks found all around campus, with locations and ratings.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100">
+            <div class="fs-1 mb-2">⭐</div>
+            <h5 class="fw-bold">Rate</h5>
+            <p class="text-muted">Share your honest rating and help fellow students find the good stuff.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100">
+            <div class="fs-1 mb-2">📍</div>
+            <h5 class="fw-bold">Locate</h5>
+            <p class="text-muted">Never miss your favourite snack — every entry includes where to find it.</p>
+        </div>
+    </div>
+</div>

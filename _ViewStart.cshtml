@@ -1,0 +1,41 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace SnackTrackMvc.Models
+{
+    public class Snack
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Snack name is required.")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 100 characters.")]
+        [Display(Name = "Snack Name")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Category is required.")]
+        [Display(Name = "Category")]
+        public string Category { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Price is required.")]
+        [Range(0.01, 999.99, ErrorMessage = "Price must be between R0.01 and R999.99.")]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Price (R)")]
+        public decimal Price { get; set; }
+
+        [Required(ErrorMessage = "Location is required.")]
+        [StringLength(150, ErrorMessage = "Location cannot exceed 150 characters.")]
+        [Display(Name = "Where to Find It")]
+        public string Location { get; set; } = string.Empty;
+
+        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+        [Display(Name = "Rating (1-5)")]
+        public int Rating { get; set; } = 3;
+
+        [StringLength(300, ErrorMessage = "Description cannot exceed 300 characters.")]
+        [Display(Name = "Description")]
+        public string? Description { get; set; }
+
+        [Display(Name = "Date Added")]
+        [DataType(DataType.Date)]
+        public DateTime DateAdded { get; set; } = DateTime.Today;
+    }
+}
